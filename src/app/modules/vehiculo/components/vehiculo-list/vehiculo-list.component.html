@@ -33,10 +33,11 @@
           </tbody>
         </table>
 
-        <div class="my-4"></div>
-
-        <h5>Total de Toyota: 1</h5>
-        <h5>Total de Honda: 1</h5>
+        <div class="mt-4">
+          <h5 *ngFor="let marca of getMarcasUnicas()">
+            Total de {{ marca }}: {{ marcasCount[marca] }}
+          </h5>
+        </div>
       </div>
     </div>
   </div>

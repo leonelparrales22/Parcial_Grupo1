@@ -11,12 +11,31 @@ import { Vehiculo } from '../../models/vehiculo';
 export class VehiculoListComponent implements OnInit {
   constructor(private vehiculoService: VehiculoService) {}
   vehiculos: Array<Vehiculo> = [];
+  marcasCount: { [key: string]: number } = {};
 
   getVehiculos() {
-    this.vehiculoService.getVehiculosLista().subscribe((vehiculo) => {
-      this.vehiculos = vehiculo;
+    this.vehiculoService.getVehiculosLista().subscribe((vehiculos) => {
+      this.vehiculos = vehiculos;
+      this.calcularTotalPorMarca();
     });
   }
+
+  calcularTotalPorMarca() {
+    this.marcasCount = {};
+
+    this.vehiculos.forEach((vehiculo) => {
+      if (this.marcasCount[vehiculo.marca]) {
+        this.marcasCount[vehiculo.marca]++;
+      } else {
+        this.marcasCount[vehiculo.marca] = 1;
+      }
+    });
+  }
+
+  getMarcasUnicas(): string[] {
+    return Object.keys(this.marcasCount);
+  }
+
   ngOnInit() {
     this.getVehiculos();
   }

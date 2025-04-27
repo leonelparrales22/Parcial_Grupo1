@@ -1,6 +1,6 @@
 export class Vehiculo {
   id?: number;
-  marca?: string;
+  marca!: string;
   linea?: string;
   referencia?: string;
   modelo?: number;
