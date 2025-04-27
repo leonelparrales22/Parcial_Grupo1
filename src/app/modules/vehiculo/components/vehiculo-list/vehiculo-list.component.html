@@ -1,53 +1,28 @@
-<div class="wrapper d-flex flex-column min-vh-100">
-  <div class="container mt-4">
-    <h3>TuSegundazo.com</h3>
-    <hr />
+<div class="row justify-content-center">
+  <div class="col-lg-9 col-md-10 col-sm-12">
+    <table class="table table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Línea</th>
+          <th scope="col">Modelo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehiculo of vehiculos">
+          <th scope="row">{{ vehiculo.id }}</th>
+          <td>{{ vehiculo.marca }}</td>
+          <td>{{ vehiculo.linea }}</td>
+          <td>{{ vehiculo.modelo }}</td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- Banner (ocupa el 100% del contenedor) -->
-    <img
-      src="assets/images/Banner.png"
-      alt="banner"
-      class="img-fluid w-100 banner-altura"
-    />
-
-    <hr />
-
-    <div class="row justify-content-center">
-      <div class="col-lg-9 col-md-10 col-sm-12">
-        <table class="table table-striped table-hover">
-          <thead class="table-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Marca</th>
-              <th scope="col">Línea</th>
-              <th scope="col">Modelo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let vehiculo of vehiculos">
-              <th scope="row">{{ vehiculo.id }}</th>
-              <td>{{ vehiculo.marca }}</td>
-              <td>{{ vehiculo.linea }}</td>
-              <td>{{ vehiculo.modelo }}</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="mt-4">
-          <h5 *ngFor="let marca of getMarcasUnicas()">
-            Total de {{ marca }}: {{ marcasCount[marca] }}
-          </h5>
-        </div>
-      </div>
+    <div class="mt-4">
+      <h5 *ngFor="let marca of getMarcasUnicas()">
+        Total de {{ marca }}: {{ marcasCount[marca] }}
+      </h5>
     </div>
   </div>
-
-  <!-- Footer fijo -->
-  <footer class="mt-auto py-3 text-center">
-    <div class="container">
-      <p class="mb-0">
-        Contact us: +57 3102105253 - info&#64;tusegundazo.com - &#64;tusegundazo
-      </p>
-    </div>
-  </footer>
 </div>
